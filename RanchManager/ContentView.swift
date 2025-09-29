@@ -9,23 +9,26 @@ import SwiftUI
 
 struct ContentView: View {
     var body: some View {
+      NavigationStack {
         VStack {
             Text("At a Glance")
                 .font(.title)
                 .padding([.bottom, .top], 80)
-            MainCardView(typeLabel: "All Cows", numLabel: "600")
+            MainCardView(typeLabel: "All Cows", numberOfThings: 600)
 
             HStack {
-                MainCardView(typeLabel: "Bulls", numLabel: "120")
-                MainCardView(typeLabel: "Cows", numLabel: "200")
+                MainCardView(typeLabel: "Bulls", numberOfThings: 120)
+                MainCardView(typeLabel: "Cows", numberOfThings: 200)
 
             }
             HStack {
-                MainCardView(typeLabel: "Calves", numLabel: "200")
-                MainCardView(typeLabel: "Steers", numLabel: "80")
+                MainCardView(typeLabel: "Calves", numberOfThings: 200)
+                MainCardView(typeLabel: "Steers", numberOfThings: 80)
             }
             Spacer()
         }
+      }
+
     }
 }
 
@@ -35,23 +38,24 @@ struct ContentView: View {
 
 struct MainCardView: View {
     var typeLabel: String
-    var numLabel: String
+    var numberOfThings: Int
     var body: some View {
+      NavigationLink(destination: DetailView(animalType: typeLabel, numberOfThings: numberOfThings)) {
         VStack{
             Text(typeLabel)
-            Text(numLabel)
+          Text("\(numberOfThings)")
         }
-        .navigationDestination(for: Int.self) { num in
-            DetailView()
-        }
+      }
         .padding()
-        .background(.blue.opacity(0.4))
+        .background(.gray.opacity(0.4))
         .clipShape(.buttonBorder)
     }
 }
 
 struct DetailView: View {
+  var animalType: String
+  var numberOfThings: Int
     var body: some View {
-        Text("Some number")
+      Text("The number of \(animalType.lowercased()) is: \(numberOfThings)")
     }
 }
