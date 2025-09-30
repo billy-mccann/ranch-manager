@@ -7,33 +7,17 @@
 
 import SwiftUI
 
-struct ContentView: View {
+struct NavigationRouter: View {
+  var innerView: InnerContentView
     var body: some View {
       NavigationStack {
-        VStack {
-            Text("At a Glance")
-                .font(.title)
-                .padding([.bottom, .top], 80)
-            MainCardView(typeLabel: "All Cows", numberOfThings: 600)
-
-            HStack {
-                MainCardView(typeLabel: "Bulls", numberOfThings: 120)
-                MainCardView(typeLabel: "Cows", numberOfThings: 200)
-
-            }
-            HStack {
-                MainCardView(typeLabel: "Calves", numberOfThings: 200)
-                MainCardView(typeLabel: "Steers", numberOfThings: 80)
-            }
-            Spacer()
-        }
+        innerView
       }
-
     }
 }
 
 #Preview {
-    ContentView()
+  NavigationRouter(innerView: InnerContentView())
 }
 
 struct MainCardView: View {
@@ -58,4 +42,26 @@ struct DetailView: View {
     var body: some View {
       Text("The number of \(animalType.lowercased()) is: \(numberOfThings)")
     }
+}
+
+struct InnerContentView: View {
+  var body: some View {
+    VStack {
+      Text("At a Glance")
+        .font(.title)
+        .padding([.bottom, .top], 80)
+      MainCardView(typeLabel: "All Cows", numberOfThings: 600)
+      
+      HStack {
+        MainCardView(typeLabel: "Bulls", numberOfThings: 120)
+        MainCardView(typeLabel: "Cows", numberOfThings: 200)
+        
+      }
+      HStack {
+        MainCardView(typeLabel: "Calves", numberOfThings: 200)
+        MainCardView(typeLabel: "Steers", numberOfThings: 80)
+      }
+      Spacer()
+    }
+  }
 }

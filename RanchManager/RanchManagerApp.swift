@@ -11,7 +11,7 @@ import SwiftUI
 struct RanchManagerApp: App {
     var body: some Scene {
         WindowGroup {
-            ContentView()
+          NavigationRouter(innerView: InnerContentView())
         }
     }
 }
