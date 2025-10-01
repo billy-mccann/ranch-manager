@@ -1,4 +1,4 @@
-import Foundation
+import SwiftUI
 
 // NavigationRouter contains a destination (enum) as well as a navigationBundle holding any/all data needed for the destination view.
 struct NavigationRouter: Hashable {
@@ -21,3 +21,4 @@ struct DetailViewBundle: Hashable {
 enum NavigationDestination {
   case detailView
 }
+
