@@ -1,21 +1,23 @@
 import SwiftUI
 
 struct InnerContentView: View {
+  let ALL_COWS_LABEL = "All Cows"
+
   var body: some View {
     VStack {
       Text("At a Glance")
         .font(.title)
         .padding([.bottom, .top], 80)
-      CardView(typeLabel: "All Cows", numberOfThings: 600)
+      CardView(typeLabel: ALL_COWS_LABEL, numberOfThings: 600)
 
       HStack {
-        CardView(typeLabel: "Bulls", numberOfThings: 120)
-        CardView(typeLabel: "Cows", numberOfThings: 200)
+        CardView(typeLabel: CowType.Bulls.rawValue, numberOfThings: 120)
+        CardView(typeLabel: CowType.Cows.rawValue, numberOfThings: 200)
 
       }
       HStack {
-        CardView(typeLabel: "Calves", numberOfThings: 200)
-        CardView(typeLabel: "Steers", numberOfThings: 80)
+        CardView(typeLabel: CowType.Calves.rawValue, numberOfThings: 200)
+        CardView(typeLabel: CowType.Steers.rawValue, numberOfThings: 80)
       }
       Spacer()
     }

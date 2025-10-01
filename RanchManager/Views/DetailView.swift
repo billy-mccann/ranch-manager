@@ -9,5 +9,5 @@ struct DetailView: View {
 }
 
 #Preview {
-  DetailView(animalType: "Animals", numberOfThings: 262)
+  DetailView(animalType: CowType.Steers.rawValue, numberOfThings: 262)
 }
