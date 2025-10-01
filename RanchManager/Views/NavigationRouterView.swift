@@ -1,12 +1,13 @@
 import SwiftUI
 
-struct NavigationRouterView: View {
+struct NavigationRouterView<Content: View> : View {
   @EnvironmentObject var navManager: NavigationManager
+  var contentView: Content
 
   var body: some View {
     NavigationStack(path: $navManager.path) {
 
-      InnerContentView()
+      contentView
 
       .navigationDestination(for: DestinationContainer.self) { container in
 
@@ -21,6 +22,6 @@ struct NavigationRouterView: View {
 }
 
 #Preview {
-  NavigationRouterView()
+  NavigationRouterView(contentView: InnerContentView())
     .environmentObject(NavigationManager())
 }
