@@ -1,13 +1,13 @@
 import SwiftUI
 
-// NavigationRouter contains a destination (enum) as well as a navigationBundle holding any/all data needed for the destination view.
-struct NavigationRouter: Hashable {
+// DestinationContainer holds a destination (enum) as well as a bundle holding any/all data needed for the destination view.
+struct DestinationContainer: Hashable {
   let destination: NavigationDestination
-  let bundle: NavigationBundle?
+  let bundle: DestinationBundle?
 }
 
 // NavigationBundle is used to pass any deta required to the destination view.
-struct NavigationBundle: Hashable {
+struct DestinationBundle: Hashable {
   var detailViewBundle: DetailViewBundle?
 }
 

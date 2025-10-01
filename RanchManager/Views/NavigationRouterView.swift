@@ -8,11 +8,11 @@ struct NavigationRouterView: View {
 
       InnerContentView()
 
-      .navigationDestination(for: NavigationRouter.self) { router in
+      .navigationDestination(for: DestinationContainer.self) { container in
 
-        switch router.destination {
+        switch container.destination {
         case .detailView:
-          let detailViewBundle = router.bundle!.detailViewBundle!
+          let detailViewBundle = container.bundle!.detailViewBundle!
           DetailView(animalType: detailViewBundle.animalType, numberOfThings: detailViewBundle.numberOfThings)
         }
       }
