@@ -13,8 +13,13 @@ struct NavigationRouterView<Content: View> : View {
 
         switch container.destination {
         case .detailView:
-          let detailViewBundle = container.bundle!.detailViewBundle!
-          DetailView(animalType: detailViewBundle.animalType, numberOfThings: detailViewBundle.numberOfThings)
+          if let detailViewBundle = container.bundle?.detailViewBundle {
+            DetailView(animalType: detailViewBundle.animalType, numberOfThings: detailViewBundle.numberOfThings)
+          } else {
+            Text("Error: you shouldn't see this")
+          }
+        case .addCowView:
+          AddCowView()
         }
       }
     }

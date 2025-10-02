@@ -1,6 +1,8 @@
 import SwiftUI
 
 struct InnerContentView: View {
+  @EnvironmentObject var navManager: NavigationManager
+
   let ALL_COWS_LABEL = "All Cows"
 
   var body: some View {
@@ -20,10 +22,17 @@ struct InnerContentView: View {
         CardView(typeLabel: CowType.Steers.rawValue, numberOfThings: 80)
       }
       Spacer()
+      Button(action: {
+        let destination = DestinationContainer(destination: .addCowView, bundle: nil)
+        navManager.navigateTo(destination)
+      }) {
+        Text("Add Cow")
+      }
     }
   }
 }
 
 #Preview {
   InnerContentView()
+    .environmentObject(NavigationManager())
 }

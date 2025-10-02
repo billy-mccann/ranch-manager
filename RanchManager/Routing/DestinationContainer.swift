@@ -20,5 +20,6 @@ struct DetailViewBundle: Hashable {
 // All navigation destinations are added as cases to this enum and are used in our routing stack
 enum NavigationDestination {
   case detailView
+  case addCowView
 }
 

@@ -25,3 +25,4 @@ struct CardView: View {
 #Preview {
   CardView(typeLabel: CowType.Bulls.rawValue, numberOfThings: 262)
 }
+
