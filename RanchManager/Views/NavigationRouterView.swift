@@ -9,7 +9,7 @@ struct NavigationRouterView<Content: View> : View {
 
       contentView
 
-        .navigationDestination(for: NavigationDestination.self) { destination in
+        .navigationDestination(for: NavDestination.self) { destination in
 
         switch destination {
 

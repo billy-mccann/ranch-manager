@@ -4,6 +4,7 @@ struct InnerContentView: View {
   @EnvironmentObject var navManager: NavigationManager
 
   let ALL_COWS_LABEL = "All Cows"
+  let ADD_COW_LABEL = "Add Cow"
 
   var body: some View {
     VStack {
@@ -23,9 +24,9 @@ struct InnerContentView: View {
       }
       Spacer()
       Button(action: {
-        navManager.navigateTo(NavigationDestination.addCowView)
+        navManager.navigateTo(NavDestination.addCowView)
       }) {
-        Text("Add Cow")
+        Text(ADD_COW_LABEL)
       }
     }
   }
