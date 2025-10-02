@@ -23,8 +23,7 @@ struct InnerContentView: View {
       }
       Spacer()
       Button(action: {
-        let destination = DestinationContainer(destination: .addCowView, bundle: nil)
-        navManager.navigateTo(destination)
+        navManager.navigateTo(NavigationDestination.addCowView)
       }) {
         Text("Add Cow")
       }

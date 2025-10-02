@@ -15,9 +15,7 @@ struct CardView: View {
         .background(.gray.opacity(0.4))
         .clipShape(.buttonBorder)
         .onTapGesture {
-          let detailViewBundle = DetailViewBundle(animalType: typeLabel, numberOfThings: numberOfThings)
-          let bundle = DestinationBundle(detailViewBundle: detailViewBundle)
-          navManager.navigateTo(DestinationContainer(destination: .detailView, bundle: bundle))
+          navManager.navigateTo(NavigationDestination.detailView(animalType: typeLabel, numberOfThings: numberOfThings))
         }
     }
 }
