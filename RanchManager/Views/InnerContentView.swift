@@ -1,7 +1,7 @@
 import SwiftUI
 
 struct InnerContentView: View {
-  @EnvironmentObject var navManager: NavigationManager
+  @Environment(NavigationManager.self) var navManager
 
   let ALL_COWS_LABEL = "All Cows"
   let ADD_COW_LABEL = "Add Cow"
@@ -34,5 +34,5 @@ struct InnerContentView: View {
 
 #Preview {
   InnerContentView()
-    .environmentObject(NavigationManager())
+    .environment(NavigationManager())
 }

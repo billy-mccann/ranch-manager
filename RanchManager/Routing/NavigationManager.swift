@@ -1,7 +1,9 @@
 import SwiftUI
+import Observation
 
-class NavigationManager: ObservableObject {
-  @Published var path = NavigationPath()
+@Observable
+class NavigationManager {
+  var path = NavigationPath()
 
   func navigateTo<T: Hashable>(_ destination: T) {
     path.append(destination)

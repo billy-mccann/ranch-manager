@@ -1,7 +1,7 @@
 import SwiftUI
 
 struct CardView: View {
-  @EnvironmentObject var navManager: NavigationManager
+  @Environment(NavigationManager.self) var navManager
 
     var typeLabel: String
     var numberOfThings: Int
