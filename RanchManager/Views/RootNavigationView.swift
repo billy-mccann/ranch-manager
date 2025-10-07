@@ -1,6 +1,6 @@
 import SwiftUI
 
-struct NavigationRouterView<Content: View> : View {
+struct RootNavigationView<Content: View> : View {
   @Environment(NavigationManager.self) var navManager
   
   var contentView: Content
@@ -28,6 +28,6 @@ struct NavigationRouterView<Content: View> : View {
 }
 
 #Preview {
-  NavigationRouterView(contentView: InnerContentView())
+  RootNavigationView(contentView: MainView())
     .environment(NavigationManager())
 }

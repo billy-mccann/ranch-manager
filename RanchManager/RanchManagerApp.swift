@@ -6,7 +6,7 @@ struct RanchManagerApp: App {
 
     var body: some Scene {
         WindowGroup {
-          NavigationRouterView(contentView: InnerContentView())
+          RootNavigationView(contentView: MainView())
             .environment(navManager)
         }
     }
