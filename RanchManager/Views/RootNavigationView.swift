@@ -11,6 +11,10 @@ struct RootNavigationView<Content: View> : View {
     NavigationStack(path: $navManager.path) {
 
       contentView
+        .frame(maxWidth: .infinity, maxHeight: .infinity)
+        .background(
+          Color.black.opacity(0.95)
+        )
 
         .navigationDestination(for: NavDestination.self) { destination in
 

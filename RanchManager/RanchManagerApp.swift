@@ -8,6 +8,7 @@ struct RanchManagerApp: App {
         WindowGroup {
           RootNavigationView(contentView: MainView())
             .environment(navManager)
+            .preferredColorScheme(.dark)
         }
     }
 }

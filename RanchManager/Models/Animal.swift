@@ -17,8 +17,8 @@ enum AnimalGender: String, Codable {
 }
 
 enum CowType: String, Codable {
-  case Bulls
-  case Cows
-  case Calves
-  case Steers
+  case Bulls = "Bulls 🐂"
+  case Cows = "Cows 🐄"
+  case Calves = "Calves 🍼"
+  case Steers = "Steers 🚫"
 }
