@@ -5,10 +5,24 @@ protocol Animal {}
 class Cow: Animal, Codable {
   var id: Int?
   var name: String?
-  var DOB: Int?
+  var dateOfBirth: Int?
   var type: CowType?
   var gender: AnimalGender?
-  var imageURL: URL?
+  var imageUrl: URL?
+  var birthWeight: Int? // lbs
+  var weightHistory: [Int:Int]? // key: ms since 1970, value: weight in lbs
+  var vaccineHistory: [Int:VaxType]?
+  var isPregnant: Bool?
+  var brandDate: Int?
+  var earTagId: String?
+}
+
+enum VaxType: String, Codable {
+  case IBR
+  case BVD
+  case BRSV
+  case PI3
+  case Clostridial
 }
 
 enum AnimalGender: String, Codable {
