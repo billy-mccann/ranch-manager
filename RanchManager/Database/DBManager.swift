@@ -1,3 +1,4 @@
+import Foundation
 
 protocol DBManaging {
   func add(_ animal: Animal) async -> Bool
@@ -22,5 +23,11 @@ class DBManager: DBManaging {
   
   func fetch<T>(_ id: Int) async -> T? where T : Animal {
     nil
+  }
+
+  private func getDatabaseURL() throws -> URL {
+    let fileManager = FileManager.default
+    let appSupportURL = try fileManager.url(for: .applicationSupportDirectory, in: .userDomainMask, appropriateFor: nil, create: true)
+    return appSupportURL.appendingPathComponent("livestock.db")
   }
 }

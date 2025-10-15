@@ -41,6 +41,7 @@ struct GoToAddCowButton: View {
   }
 }
 
+
 #Preview {
   GoToAddCowButton()
     .environment(NavigationManager())
