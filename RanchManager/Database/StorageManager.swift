@@ -28,15 +28,10 @@ class StorageManager: StorageManaging {
   }
 
   // MARK: - Static methods
-  private static func getDatabaseURL() throws(DBError) -> URL {
+  private static func getDatabaseURL() throws -> URL {
     let fileManager = FileManager.default
-    do {
       let appSupportURL = try fileManager.url(for: .applicationSupportDirectory, in: .userDomainMask, appropriateFor: nil, create: true)
       return appSupportURL.appendingPathComponent("livestock.sqlite")
-    } catch {
-      throw DBError.FileManagerUrlFailed
-    }
-
   }
 
   private static func getDatabaseQueue() throws -> DatabaseQueue {
@@ -44,8 +39,4 @@ class StorageManager: StorageManaging {
       let dbQueue = try DatabaseQueue(path: url.absoluteString)
       return dbQueue
   }
-}
-
-enum DBError: Error {
-  case FileManagerUrlFailed
 }
